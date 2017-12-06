@@ -8,9 +8,12 @@ name = "pypi"
 [dev-packages]
 
 
+
 [packages]
 
 requests = "*"
+wheel = "*"
+twine = "*"
 
 
 [requires]

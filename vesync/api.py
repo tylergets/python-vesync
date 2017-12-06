@@ -6,7 +6,7 @@ requests.packages.urllib3.disable_warnings()
 
 BASE_URL = "https://smartapi.vesync.com"
 
-class Api:
+class VesyncApi:
     def __init__(self, username, password):
         payload = json.dumps({"account":username,"devToken":"","password":hashlib.md5(password.encode('utf-8')).hexdigest()})
         account = requests.post(BASE_URL + "/vold/user/login", verify=False, data=payload).json()
