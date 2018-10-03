@@ -20,7 +20,15 @@ class VesyncApi:
         self._devices = requests.get(BASE_URL + '/vold/user/devices', verify=False, headers=self.get_headers()).json()
         return self._devices
 
-    def turn_on(self,id):
+    def get_config(self, id):
+        self._configuration = requests.get(BASE_URL + '/v1/device/' + id + '/configurations', verify=False, headers=self.get_headers()).json()
+        return self._configuration
+
+    def get_detail(self, id):
+        self._detail = requests.get(BASE_URL + '/v1/device/' + id + '/detail', verify=False, headers=self.get_headers()).json()
+        return self._detail
+
+    def turn_on(self, id):
         requests.put(BASE_URL + '/v1/wifi-switch-1.3/' + id + '/status/on', verify=False, data={}, headers=self.get_headers())
 
     def turn_off(self, id):
